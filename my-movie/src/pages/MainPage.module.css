@@ -1,0 +1,14 @@
+.mainSection h3 {
+  margin-left: 1rem;
+}
+
+.mainGallery {
+  margin: 1rem;
+  display: flex;
+}
+
+.mainGallery img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+}

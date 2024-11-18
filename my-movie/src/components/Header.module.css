@@ -1,0 +1,25 @@
+.myHeader {
+  background-color: green;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+}
+
+.myHeader ul {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+}
+
+.link {
+  color: white;
+  padding: 1rem 2rem;
+}
+
+.link:hover {
+  color: lightgreen;
+}

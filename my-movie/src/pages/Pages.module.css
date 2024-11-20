@@ -31,7 +31,7 @@
 }
 
 .mainGallery {
-  height: 320px;
+  height: 350px;
   overflow: hidden;
 }
 
@@ -41,3 +41,35 @@
   object-fit: cover;
 }
 
+.detailSection {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.movieDetail {
+  margin-right: 1rem;
+  min-width: 500px;
+  width: 100%;
+  display: flex;
+  text-align: start;
+  gap: 2rem;
+}
+
+.movieDetail > img {
+  width: 300px;
+  height: 450px;
+  object-fit: cover;
+}
+
+.movieDetail > div {
+  /* flex: 1; */
+  width: calc((100% - 300px) * 0.9);
+  max-height: 450px;
+}
+
+.movieDetail > div > div {
+  max-height: 170px;
+  overflow-y: auto;
+}

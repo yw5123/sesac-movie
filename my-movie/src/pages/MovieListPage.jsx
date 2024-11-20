@@ -18,11 +18,9 @@ export default function MovieListPage() {
     async function fetchMovies() {
       try {
         const data = await movieApi.getMoviesByCategory(category);
-        const movieData = data.results;
-        console.log(movieData)
-        setMovieList(movieData);
+        setMovieList(data.results);
       } catch (error) {
-        console.log(`${category}페이지 로딩 중 오류 발생: ${error}`);
+        console.log(`${category} 페이지 로딩 중 오류 발생: ${error}`);
       };
     };
 

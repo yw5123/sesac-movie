@@ -26,8 +26,7 @@ export default function MainPage() {
   }, []);
 
   return (
-    <>
-      <h2>SeSAC MOVIE</h2>
+    <main>
       <article>
         {categoryList.map((category) => (
           <section className={styles.mainSection}>
@@ -40,6 +39,6 @@ export default function MainPage() {
           </section>
         ))}
       </article>
-    </>
+    </main>
   );
 };

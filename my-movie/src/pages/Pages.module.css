@@ -16,8 +16,17 @@
 
 .categoryLink {
   margin: 0;
+  border: 2px green solid;
+  border-radius: 5px;
+  padding: 0.3rem;
   display: flex;
   align-items: center;
+  color: darkgreen;
+}
+
+.categoryLink:hover {
+  color: azure;
+  background-color: green;
 }
 
 .movieGallery {
@@ -33,12 +42,6 @@
 .mainGallery {
   height: 350px;
   overflow: hidden;
-}
-
-.movieGallery img {
-  width: 200px;
-  height: 300px;
-  object-fit: cover;
 }
 
 .detailSection {

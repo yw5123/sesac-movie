@@ -33,7 +33,7 @@ export default function MainPage() {
           <section className={styles.movieSection}>
             <div className={styles.categoryTitle}>
               <h2>{category}</h2>
-              <Link to={`/${category}`} className={styles.categoryLink}>더 보기</Link>
+              <Link to={`/${category}`} className={styles.categoryLink}><b>더 보기</b></Link>
             </div>
             <div className={`${styles.movieGallery} ${styles.mainGallery}`}>
               {movieList[category]?.map((movie) => (

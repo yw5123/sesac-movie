@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import RootLayout from "../layouts/RootLayout";
 import MainPage from "../pages/MainPage";
+import MovieListPage from "../pages/MovieListPage";
 
 const router = createBrowserRouter([
   {
@@ -11,6 +12,10 @@ const router = createBrowserRouter([
         index: true,
         element: <MainPage />,
       },
+      {
+        path: ":category",
+        element: <MovieListPage />,
+      }
     ],
   },
 ]);

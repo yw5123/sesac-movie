@@ -1,0 +1,43 @@
+.movieSection {
+  width: fit-content;
+  padding: 0 1rem;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+}
+
+.categoryTitle {
+  width: fit-content;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.categoryLink {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.movieGallery {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.mainGallery {
+  height: 320px;
+  overflow: hidden;
+}
+
+.movieGallery img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+}
+

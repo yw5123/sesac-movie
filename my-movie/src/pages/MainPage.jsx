@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import styles from "./MainPage.module.css"
+import { Link } from "react-router-dom";
+import styles from "./Pages.module.css";
 import movieApi from "../api/moviesApi";
 import MovieCard from "../components/movie/MovieCard";
 
@@ -12,7 +13,7 @@ export default function MainPage() {
       try {
         const movieData = {};
         for (const category of categoryList) {
-          const data = await movieApi.getMoviesMain(category);
+          const data = await movieApi.getMoviesByCategory(category);
           movieData[category] = data.results.slice(0, 10);
         };
         
@@ -29,9 +30,12 @@ export default function MainPage() {
     <main>
       <article>
         {categoryList.map((category) => (
-          <section className={styles.mainSection}>
-            <h3>{category}</h3>
-            <div className={styles.mainGallery}>
+          <section className={styles.movieSection}>
+            <div className={styles.categoryTitle}>
+              <h2>{category}</h2>
+              <Link to={`/${category}`} className={styles.categoryLink}>더 보기</Link>
+            </div>
+            <div className={`${styles.movieGallery} ${styles.mainGallery}`}>
               {movieList[category]?.map((movie) => (
                 <MovieCard key={movie.id} movie={movie} />
               ))}

@@ -9,6 +9,14 @@ const movieApi = {
     const response = await api.get(`movie/${id}`);
     return response.data;
   },
+  getMovieReviews: async (id) => {
+    const response = await api.get(`movie/${id}/reviews`, {
+      params: {
+        language: "en",
+      }
+    });
+    return response.data;
+  },
 };
 
 export default movieApi;

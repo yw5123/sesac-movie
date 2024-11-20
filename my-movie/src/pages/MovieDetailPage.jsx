@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./Pages.module.css";
 import movieApi from "../api/moviesApi";
+import MovieReview from "../components/movie/MovieReview";
 
 export default function MovieDetailPage() {
   const { id } = useParams();
   const [movieData, setMovieData] = useState({});
   const [imgSrc, setImgSrc] = useState(null);
+  const [movieReviews, setMovieReviews] = useState();
 
   useEffect(() => {
     async function fetchMovie() {
@@ -14,6 +16,9 @@ export default function MovieDetailPage() {
         const data1 = await movieApi.getMovieById(id);
         setMovieData(data1);
         setImgSrc(`https://image.tmdb.org/t/p/w300/${data1.poster_path}`);
+
+        const data2 = await movieApi.getMovieReviews(id);
+        setMovieReviews(data2);
       } catch (error) {
         console.log(`영화(${id}) 상세 페이지 로딩 중 오류 발생: ${error}`);
       }
@@ -37,7 +42,9 @@ export default function MovieDetailPage() {
             <div>{movieData.overview}</div>
           </div>
         </div>
-        
+      </section>
+      <section className={styles.reviewSection}>
+        <MovieReview total={movieReviews?.total_results} reviews={movieReviews?.results}></MovieReview>
       </section>
     </main>
   )

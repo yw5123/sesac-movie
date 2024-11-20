@@ -73,3 +73,7 @@
   max-height: 170px;
   overflow-y: auto;
 }
+
+.reviewSection {
+  padding: 0 2rem;
+}

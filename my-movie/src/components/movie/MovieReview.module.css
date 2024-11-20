@@ -1,0 +1,11 @@
+.reviewBox {
+  margin-bottom: 1.5rem;
+  border: 1px green solid;
+  border-radius: 20px;
+  padding: 1rem;
+  padding-top: 0;
+}
+
+.reviewBox b {
+  color: green
+}

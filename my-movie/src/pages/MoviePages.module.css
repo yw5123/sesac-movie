@@ -1,5 +1,5 @@
 .movieSection {
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
   text-align: center;
 }
 
@@ -19,6 +19,7 @@
   display: flex;
   align-items: center;
   color: darkgreen;
+  text-decoration: inherit;
 }
 .categoryLink:hover {
   color: azure;
@@ -46,11 +47,10 @@
 }
 
 .movieDetail {
-  margin-right: 1rem;
+  margin: 0 1rem;
   min-width: 500px;
   width: 100%;
   display: flex;
-  text-align: start;
   gap: 2rem;
 }
 
@@ -67,8 +67,13 @@
   flex-direction: column;
 }
 
+.movieDetail > div > h2 {
+  margin-top: 0;
+}
+
 .movieDetail > div > p {
   width: calc(100% - 2rem);
+  margin-top: 0.5rem;
 }
 
 .movieDetail > div > div {

@@ -18,12 +18,12 @@ export default function Header() {
   return (
     <nav className={styles.myHeader}>
       <ul>
-        <li><Link to="/" className={styles.link}>SeSAC MOVIE🎬</Link></li>
+        <li><Link to="/" className={styles.link}><h3>SeSAC MOVIE</h3></Link></li>
       </ul>
       <ul>
-        {!isLoggedIn && <li><Link to="/login" className={styles.link}>로그인</Link></li>}
-        {isLoggedIn && <li><Link to="/myPage" className={styles.link}>마이페이지</Link></li>}
-        {isLoggedIn && <li><a onClick={handleLogout} className={`${styles.link} ${styles.logout}`}>로그아웃</a></li>}
+        {!isLoggedIn && <li><Link to="/login" className={styles.link}><h4>로그인</h4></Link></li>}
+        {isLoggedIn && <li><Link to="/myPage" className={styles.link}><h4>마이페이지</h4></Link></li>}
+        {isLoggedIn && <li><a onClick={handleLogout} className={styles.link}><h4 className={styles.logout}>로그아웃</h4></a></li>}
       </ul>
     </nav>
   )

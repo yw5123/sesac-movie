@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import styles from "./MyPages.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import styles from "./MyPages.module.css";
 import { login } from "../store/slices/authSlice";
 
 export default function LoginPage() {
@@ -41,7 +41,7 @@ export default function LoginPage() {
 
   return (
     <main>
-      <section>
+      <section className={styles.loginSection}>
         <h3>SeSAC MOVIE 로그인</h3>
         <form onSubmit={handleLogin} className={styles.loginForm}>
           <div>

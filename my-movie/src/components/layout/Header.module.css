@@ -21,7 +21,10 @@
   color: white;
   padding: 1rem 2rem;
 }
-
 .link:hover {
   color: lightgreen;
+}
+
+.logout {
+  padding-left: 0;
 }

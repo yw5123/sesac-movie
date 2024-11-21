@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
-import styles from "./Pages.module.css"
+import styles from "./MoviePages.module.css"
 import movieApi from "../api/moviesApi";
 import MovieCard from "../components/movie/MovieCard";
 
@@ -9,7 +9,7 @@ export default function MovieListPage() {
   const categoryData = new Set(["now_playing", "popular", "top_rated", "upcoming"]);
 
   if (!categoryData.has(category)) {
-    return <Navigate to="/" replace></Navigate>
+    return <Navigate to="/" replace />
   }
   
   const [movieList, setMovieList] = useState([]);

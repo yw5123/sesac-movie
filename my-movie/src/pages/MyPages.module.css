@@ -1,0 +1,43 @@
+
+
+.loginForm {
+  border: 2px green solid;
+  border-radius: 20px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.loginForm > div {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginForm input {
+  width: 13rem;
+  height: 1.5rem;
+  border: 2px solid darkgreen;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+}
+
+.loginForm > button {
+  width: 6rem;
+  height: 3rem;
+  color: azure;
+  background-color: green;
+}
+.loginForm > button:hover {
+  border: 2px solid;
+  border-color: darkgreen;
+  color: green;
+  background-color: yellowgreen;
+}
+
+.message {
+  height: 2rem;
+  padding-top: 0.5rem;
+  text-align: center;
+  color: green;
+}

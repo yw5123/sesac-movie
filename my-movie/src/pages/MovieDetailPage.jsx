@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import styles from "./Pages.module.css";
+import styles from "./MoviePages.module.css"
 import movieApi from "../api/moviesApi";
 import MovieReview from "../components/movie/MovieReview";
 

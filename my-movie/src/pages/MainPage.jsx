@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import styles from "./Pages.module.css";
+import styles from "./MoviePages.module.css"
 import movieApi from "../api/moviesApi";
 import MovieCard from "../components/movie/MovieCard";
 

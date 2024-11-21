@@ -1,8 +1,5 @@
 .movieSection {
-  width: fit-content;
   padding: 0 1rem;
-  margin: 0 auto;
-  display: block;
   text-align: center;
 }
 
@@ -23,15 +20,12 @@
   align-items: center;
   color: darkgreen;
 }
-
 .categoryLink:hover {
   color: azure;
   background-color: green;
 }
 
 .movieGallery {
-  width: 100%;
-  margin: 0 auto;
   display: flex;
   justify-content: center;
   gap: 1rem;

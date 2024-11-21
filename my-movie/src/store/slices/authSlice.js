@@ -9,7 +9,7 @@ const initialState = {
   loginData: [
     {
       id: "user1",
-      password: "mypassword",
+      password: "1111",
     },
   ],
 }

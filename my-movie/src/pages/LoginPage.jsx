@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { act, useEffect, useState } from "react";
 import styles from "./MyPages.module.css";
 import { login } from "../store/slices/authSlice";
 
@@ -19,6 +19,17 @@ export default function LoginPage() {
     }
   }, [isLoggedIn, navigate]);
 
+  useEffect(() => {
+    if (actionResult) {
+      if (actionResult.success) {
+        navigate("/");
+      } else {
+        setLoginInput({ id: "", password: "" });
+        setLoginMessage("로그인 정보가 일치하지 않습니다.");
+      }
+    }
+  }, [actionResult, navigate]);
+
   function handleInput(e) {
     setLoginInput({
       ...loginInput,
@@ -30,13 +41,6 @@ export default function LoginPage() {
   function handleLogin(e) {
     e.preventDefault();
     dispatch(login(loginInput));
-
-    if (actionResult?.success) {
-      navigate("/");
-    } else {
-      setLoginInput({ id: "", password: "" });
-      setLoginMessage("로그인 정보가 일치하지 않습니다.");
-    }
   }
 
   return (

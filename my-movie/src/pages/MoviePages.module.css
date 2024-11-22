@@ -67,8 +67,36 @@
   flex-direction: column;
 }
 
-.movieDetail > div > h2 {
+.movieTitle {
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.movieTitle > h2 {
   margin-top: 0;
+  margin-bottom: 0;
+}
+
+.saveBtn {
+  width: 4rem;
+  height: 2.5rem;
+  border-radius: 10px;
+  font-weight: bolder;
+  color: azure;
+  background-color: green;
+}
+.saveBtn:hover {
+  border: 2px solid;
+  border-color: darkgreen;
+  color: green;
+  background-color: whitesmoke;
+}
+.saveBtn:disabled {
+  background-color: gray;
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 .movieDetail > div > p {

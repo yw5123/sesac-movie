@@ -1,14 +1,20 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./MoviePages.module.css"
 import movieApi from "../api/moviesApi";
 import MovieReview from "../components/movie/MovieReview";
+import { saveMovie } from "../store/slices/movieSlice";
 
 export default function MovieDetailPage() {
   const { id } = useParams();
+
+  const { isLoggedIn, loggedInId } = useSelector((state) => state.auth.loginState);
+
   const [movieData, setMovieData] = useState({});
   const [imgSrc, setImgSrc] = useState(null);
   const [movieReviews, setMovieReviews] = useState();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     async function fetchMovie() {
@@ -27,13 +33,32 @@ export default function MovieDetailPage() {
     fetchMovie();
   }, []);
 
+  function handleSave(e) {
+    const saveData = {
+      userId: loggedInId,
+      movie: {
+        id: movieData.id,
+        title: movieData.title,
+        poster_path: movieData.poster_path,
+      },
+    }
+    dispatch(saveMovie(saveData));
+  }
+
   return (
     <main>
       <section className={styles.detailSection}>
         <div className={styles.movieDetail}>
           <img src={imgSrc} alt={`${movieData?.title}의 포스터 이미지`} />
           <div>
-            <h2>{movieData.title}</h2>
+            <div className={styles.movieTitle}>
+              <h2>{movieData.title}</h2>
+              <button 
+                className={styles.saveBtn}
+                disabled={!isLoggedIn}
+                onClick={handleSave}
+              >저 장</button>
+            </div>
             <p>【 장르 】 {movieData.genres?.map((genre) => <span>: {genre.name} </span>)}</p>
             <p>【 상영시간 】 : {movieData?.runtime}분</p>
             <p>【 개봉일 】 : {movieData?.release_date}</p>

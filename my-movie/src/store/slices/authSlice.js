@@ -11,6 +11,10 @@ const initialState = {
       id: "user1",
       password: "1111",
     },
+    {
+      id: "user2",
+      password: "2222",
+    },
   ],
 }
 

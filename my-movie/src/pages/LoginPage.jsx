@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { act, useEffect, useState } from "react";
 import styles from "./MyPages.module.css";
@@ -12,7 +12,8 @@ export default function LoginPage() {
   const [loginMessage, setLoginMessage] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const location = useLocation();
+  
   useEffect(() => {
     if (isLoggedIn) {
       navigate("/", { replace: true });
@@ -29,6 +30,10 @@ export default function LoginPage() {
       }
     }
   }, [actionResult, navigate]);
+
+  useEffect(() => {
+    setLoginMessage("");
+  }, [location]);
 
   function handleInput(e) {
     setLoginInput({

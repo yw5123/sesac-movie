@@ -10,12 +10,14 @@ const movieSlice = createSlice({
       const { userId, movie } = action.payload;
 
       if (state[userId]) {
-        const isSaved = state[userId].some((savedMovie) => savedMovie.id === movie.id);
-        if (!isSaved) {
+        const savedIndex = state[userId].findIndex((savedMovie) => savedMovie.id === movie.id);
+        if (savedIndex > -1) {
+          state[userId].splice(savedIndex, 1);
+        } else {
           state[userId].push(movie);
         }
       } else {
-        state[userId] = [movie,]
+        state[userId] = [movie,];
       }
     },
   },

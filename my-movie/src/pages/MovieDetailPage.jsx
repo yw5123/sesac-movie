@@ -10,10 +10,12 @@ export default function MovieDetailPage() {
   const { id } = useParams();
 
   const { isLoggedIn, loggedInId } = useSelector((state) => state.auth.loginState);
+  const savedMovies = useSelector((state) => state.movie);
 
   const [movieData, setMovieData] = useState({});
   const [imgSrc, setImgSrc] = useState(null);
   const [movieReviews, setMovieReviews] = useState();
+  const [isSaved, setIsSaved] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,6 +35,14 @@ export default function MovieDetailPage() {
     fetchMovie();
   }, []);
 
+  useEffect(() => {
+    if (isLoggedIn) {
+      if (savedMovies[loggedInId] && savedMovies[loggedInId].some((movie) => `${movie.id}` === `${id}`)) {
+        setIsSaved(true);
+      }
+    }
+  }, [isLoggedIn, savedMovies]);
+
   function handleSave(e) {
     const saveData = {
       userId: loggedInId,
@@ -43,6 +53,7 @@ export default function MovieDetailPage() {
       },
     }
     dispatch(saveMovie(saveData));
+    setIsSaved(!isSaved);
   }
 
   return (
@@ -57,7 +68,7 @@ export default function MovieDetailPage() {
                 className={styles.saveBtn}
                 disabled={!isLoggedIn}
                 onClick={handleSave}
-              >저 장</button>
+              >{isSaved? "저장 취소" : "영화 저장"}</button>
             </div>
             <p>【 장르 】 {movieData.genres?.map((genre) => <span>: {genre.name} </span>)}</p>
             <p>【 상영시간 】 : {movieData?.runtime}분</p>
